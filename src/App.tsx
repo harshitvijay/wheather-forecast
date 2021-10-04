@@ -1,8 +1,9 @@
-import "./App.css";
-import ForecastPage from "./Containers/ForecastPage";
-import HourlyForeCastPage from "./Containers/HourlyForeCastPage";
+import { FC } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ForecastPage from "./Containers/ForecastPage";
+import HourlyForecastPage from "./Containers/HourlyForecastPage";
 import { WeatherStateData } from "./Context";
+import "./App.css";
 
 const data = {
   country: "Japan",
@@ -15,20 +16,20 @@ const data = {
   caption: "clear sky",
 };
 
-function App() {
+const App:FC = () => {
   return (
     <WeatherStateData.Provider value={data}>
       <Router>
         <Switch>
           <Route exact path="/" component={ForecastPage} />
           <Route
-            path={`${data.city}/${data.day}`}
-            component={HourlyForeCastPage}
+            path={`${data.city}/?day=${data.day}`}
+            component={HourlyForecastPage}
           ></Route>
         </Switch>
       </Router>
     </WeatherStateData.Provider>
   );
-}
+};
 
 export default App;
