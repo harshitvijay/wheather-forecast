@@ -1,15 +1,17 @@
 import React, { FC } from "react";
 import Typography from "@mui/material/Typography";
-import HeaderContainer from "./styles";
+import Container from "@mui/material/Container";
+import { useStyles } from "../../Styles";
 
 const Header: FC = () => {
+  const classes = useStyles();
   return (
     <React.Fragment>
-      <HeaderContainer>
+      <Container className={classes.headerContainer}>
         <Typography variant="h1" component="div">
           5-Day ForeCast.
         </Typography>
-      </HeaderContainer>
+      </Container>
     </React.Fragment>
   );
 };

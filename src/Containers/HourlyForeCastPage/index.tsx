@@ -1,4 +1,6 @@
-const HourlyForeCastPage = () => {
+import { FC } from "react";
+
+const HourlyForecastPage:FC = () => {
   return (
     <div>
       <h1>Hello World </h1>
@@ -6,4 +8,4 @@ const HourlyForeCastPage = () => {
   );
 };
 
-export default HourlyForeCastPage;
+export default HourlyForecastPage;
