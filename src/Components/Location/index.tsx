@@ -1,13 +1,16 @@
-import { useContext } from "react";
+import { FC, useContext } from "react";
+import { Typography } from "@mui/material";
 import { WeatherStateData } from "../../Context";
+import { useStyles } from "../../Styles";
 
-const Location = () => {
+const Location: FC = () => {
   // http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=f1ee0c6370a1c9875b0fd546de222926
   const context = useContext(WeatherStateData);
+  const classes = useStyles();
   return (
-    <p className="text">
+    <Typography variant="body1" component="div" className={classes.text}>
       {context.city}, {context.country}
-    </p>
+    </Typography>
   );
 };
 export default Location;

@@ -1,23 +1,15 @@
-import React from "react";
-import Container from "@mui/material/Container";
+import React, { FC } from "react";
 import Typography from "@mui/material/Typography";
+import HeaderContainer from "./styles";
 
-const Header = () => {
+const Header: FC = () => {
   return (
     <React.Fragment>
-      <Container
-        sx={{
-          bgcolor: "rgb(80, 80, 80, 0.3)",
-          height: "40vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <HeaderContainer>
         <Typography variant="h1" component="div">
           5-Day ForeCast.
         </Typography>
-      </Container>
+      </HeaderContainer>
     </React.Fragment>
   );
 };
