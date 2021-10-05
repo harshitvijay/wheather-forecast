@@ -1,29 +1,23 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ForecastPage from "./Containers/ForecastPage";
 import HourlyForecastPage from "./Containers/HourlyForecastPage";
-import { WeatherStateData } from "./Context";
+import { WeatherStateData, useWeatherData } from "./Context";
 import "./App.css";
 
-const data = {
-  country: "Japan",
-  city: "Tokyo",
-  time: "1:00PM",
-  day: "Friday",
-  date: "22/04/2021",
-  avatar: "",
-  temperature: "22 F",
-  caption: "clear sky",
-};
+const App: FC = () => {
+  const data = useWeatherData();
+  const [weatherData, setWeatherData] = useState(data.weatherData);
 
-const App:FC = () => {
   return (
-    <WeatherStateData.Provider value={data}>
+    <WeatherStateData.Provider value={{ weatherData, setWeatherData }}>
       <Router>
         <Switch>
-          <Route exact path="/" component={ForecastPage} />
+          <Route exact path="/">
+            <ForecastPage />
+          </Route>
           <Route
-            path={`${data.city}/?day=${data.day}`}
+            path={`${data.weatherData.city.name}/?day=${data.weatherData.city.country}`}
             component={HourlyForecastPage}
           ></Route>
         </Switch>
