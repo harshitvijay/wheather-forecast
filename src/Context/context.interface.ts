@@ -1,10 +1,4 @@
-export interface ContextInterface {
-  country: string;
-  city: string;
-  time: string;
-  day: string;
-  date: string;
-  avatar: string;
-  temperature: string;
-  caption: string;
-}
+export type ContextInterface = {
+  weatherData: any;
+  setWeatherData: (weatherData: any) => void;
+};
