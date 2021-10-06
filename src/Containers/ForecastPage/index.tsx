@@ -7,7 +7,7 @@ import WeatherCardWrapper from "../../Components/WeatherCardWrapper";
 const ForecastPage: FC = () => {
   return (
     <Box>
-      <Header />
+      <Header title="5-Day ForeCast." />
       <Location />
       <WeatherCardWrapper />
     </Box>
