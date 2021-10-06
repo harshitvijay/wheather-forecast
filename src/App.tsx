@@ -17,7 +17,7 @@ const App: FC = () => {
             <ForecastPage />
           </Route>
           <Route
-            path={`${data.weatherData.city.name}/?day=${data.weatherData.city.country}`}
+            path={`/${weatherData.city.name}`}
             component={HourlyForecastPage}
           ></Route>
         </Switch>
