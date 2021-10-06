@@ -3,13 +3,13 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { useStyles } from "./style";
 
-const Header: FC = () => {
+const Header: FC<{ title: string }> = ({ title }) => {
   const classes = useStyles();
 
   return (
     <Container className={classes.headerContainer}>
       <Typography variant="h1" component="div">
-        5-Day ForeCast.
+        {title}
       </Typography>
     </Container>
   );
