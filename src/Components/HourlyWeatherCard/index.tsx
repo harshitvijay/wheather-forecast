@@ -1,8 +1,8 @@
 import { FC } from "react";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
-import useStyles from "./style";
 import { CityInterface, DataInterface } from "./hourlyWeatherCard.interface";
+import useStyles from "./style";
 
 const HourlyWeatherCard: FC<{ data: DataInterface; city: CityInterface }> = ({
   data,

@@ -19,7 +19,6 @@ export interface DataInterface {
   dt_txt: string;
   visibility: number;
   pop: number;
-  weather: any;
   main: MainInterface;
   clouds: CloudInterFace;
   wind: WindInterFace;
