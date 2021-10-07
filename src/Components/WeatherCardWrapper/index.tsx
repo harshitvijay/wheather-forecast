@@ -1,7 +1,9 @@
 import { FC, useEffect } from "react";
-import { Box } from "@mui/system";
+import Box from "@mui/system/Box";
 import WeatherCard from "../WeatherCard";
 import { useWeatherData } from "../../Context";
+import { url } from "../../constant";
+import { DataInterface } from "../WeatherCard/weatherCard.interface";
 import { useStyles } from "./style";
 
 const WeatherCardWrapper: FC = () => {
@@ -9,9 +11,7 @@ const WeatherCardWrapper: FC = () => {
   const { weatherData, setWeatherData } = useWeatherData();
   const fetchData = async () => {
     try {
-      const data = await fetch(
-        "https://api.openweathermap.org/data/2.5/forecast?q=Pune&appid=f1ee0c6370a1c9875b0fd546de222926"
-      ).then((res) => res.json());
+      const data = await fetch(url).then((res) => res.json());
       setWeatherData(data);
     } catch (error) {
       console.log(error);
@@ -29,13 +29,13 @@ const WeatherCardWrapper: FC = () => {
     <Box className={classes.weather}>
       {weatherData.list
         .filter(
-          (listData, index) =>
+          (listData: { dt_txt: string }, index: number) =>
             weatherData.list.findIndex(
-              (obj) =>
+              (obj: { dt_txt: string }) =>
                 obj.dt_txt.split(" ")[0] === listData.dt_txt.split(" ")[0]
             ) === index
         )
-        .map((data, index) =>
+        .map((data: DataInterface, index: number) =>
           index < 5 ? (
             <WeatherCard key={index} data={data} city={weatherData.city} />
           ) : null
