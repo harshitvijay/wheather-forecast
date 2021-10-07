@@ -9,8 +9,6 @@ const HourlyWeatherCardWrapper: FC = () => {
   const classes = useStyles();
   const data = useWeatherData();
   const date = new URLSearchParams(window.location.search).get("date");
-  console.log(date);
-  console.log(data);
 
   return (
     <Box className={classes.cardWrapper}>
