@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 import { useWeatherData } from "../../Context";
-import { useStyles } from "./style";
+import useStyles from "./style";
 
 const Location: FC = () => {
   const classes = useStyles();
