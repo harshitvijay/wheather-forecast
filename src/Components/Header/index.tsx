@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { useStyles } from "./style";
+import useStyles from "./style";
 
 const Header: FC<{ title: string }> = ({ title }) => {
   const classes = useStyles();
