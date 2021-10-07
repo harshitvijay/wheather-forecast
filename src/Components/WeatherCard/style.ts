@@ -2,14 +2,14 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   weatherCard: {
-    minWidth: 200,
-    height: "35vh",
-    marginRight: "2%",
+    minWidth: "15%",
+    height: "40%",
     border: "2px solid rgb(80, 80, 80, 0.3)",
     textAlign: "center",
     display: "flex",
     flexDirection: "column",
     cursor: "pointer",
+    marginBottom: "2%",
   },
   dayStyles: {
     fontWeight: 900,
