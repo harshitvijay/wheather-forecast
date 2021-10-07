@@ -1,13 +1,13 @@
 import { FC } from "react";
 import Header from "../../Components/Header";
-import { Container } from "@mui/material";
-import HourlyWeatherCard from "../../Components/HourlyWeatherCard";
+import Container from "@mui/material/Container";
+import HourlyWeatherCardWrapper from "src/Components/HourlyWeatherCardWrapper";
 
 const HourlyForecastPage: FC = () => {
   return (
     <Container>
       <Header title="Hourly ForeCast." />
-      <HourlyWeatherCard />
+      <HourlyWeatherCardWrapper />
     </Container>
   );
 };
