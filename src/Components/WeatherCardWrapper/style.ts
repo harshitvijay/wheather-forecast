@@ -2,11 +2,11 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   weather: {
+    width: "80%",
     display: "flex",
-    justifyContent: "space-evenly",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
     margin: "auto",
-    marginTop: "-1.3rem",
-    maxWidth: "80%",
   },
 });
 
