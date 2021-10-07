@@ -1,14 +1,14 @@
 import { FC } from "react";
-import { useHistory } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
-import { dateToLocalDay } from "../../constant";
-import { CityInterface } from "./weatherCard.interface";
-import { useStyles } from "./style";
+import { useHistory } from "react-router-dom";
+import { CityInterface, DataInterface } from "./weatherCard.interface";
+import { dateToLocalDay } from "../../utils";
+import useStyles from "./style";
 
-const WeatherCard: FC<{ data: any; city: CityInterface }> = ({
+const WeatherCard: FC<{ data: DataInterface; city: CityInterface }> = ({
   data,
   city,
 }) => {
