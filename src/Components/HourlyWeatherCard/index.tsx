@@ -1,7 +1,12 @@
 import { FC } from "react";
-import Card from "@mui/material/Card";
-import Typography from "@mui/material/Typography";
+import TableCell from "@mui/material/TableCell";
+import TableRow from "@mui/material/TableRow";
 import { CityInterface, DataInterface } from "./hourlyWeatherCard.interface";
+import {
+  dateTimeStringToTimeString,
+  tempKelvinToCelcius,
+  timeStampToTimeString,
+} from "../../utils";
 import useStyles from "./style";
 
 const HourlyWeatherCard: FC<{ data: DataInterface; city: CityInterface }> = ({
@@ -9,25 +14,26 @@ const HourlyWeatherCard: FC<{ data: DataInterface; city: CityInterface }> = ({
   city,
 }) => {
   const classes = useStyles();
-  console.log(data, city);
 
   return (
-    <Card className={classes.card}>
-      <Typography>Current Time: {data.dt_txt.split(" ")[1]}</Typography>
-      <Typography>
-        Sunrise: {new Date(city.sunrise * 1000).toTimeString().split(" ")[0]}
-      </Typography>
-      <Typography>
-        Sunset: {new Date(city.sunset * 1000).toTimeString().split(" ")[0]}
-      </Typography>
-      <Typography>
-        Min temp: {Math.floor(data.main.temp_min - 273.15)} &#8451;
-      </Typography>
-      <Typography>
-        Max Temp: {Math.floor(data.main.temp_max - 273.15)} &#8451;
-      </Typography>
-      <Typography>Wind Speed: {data.wind.speed} km/h</Typography>
-    </Card>
+    <TableRow>
+      <TableCell className={classes.tableBodyCell}>
+        {dateTimeStringToTimeString(data.dt_txt)}
+      </TableCell>
+      <TableCell className={classes.tableBodyCell}>
+        {timeStampToTimeString(city.sunrise)}
+      </TableCell>
+      <TableCell className={classes.tableBodyCell}>
+        {timeStampToTimeString(city.sunset)}
+      </TableCell>
+      <TableCell className={classes.tableBodyCell}>
+        {tempKelvinToCelcius(data.main.temp_min)}
+      </TableCell>
+      <TableCell className={classes.tableBodyCell}>
+        {tempKelvinToCelcius(data.main.temp_max)}
+      </TableCell>
+      <TableCell className={classes.tableBodyCell}>{data.wind.speed}</TableCell>
+    </TableRow>
   );
 };
 
