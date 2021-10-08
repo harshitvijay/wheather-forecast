@@ -58,6 +58,7 @@ export const WeatherStateData = createContext<ContextInterface>({
       timezone: 0,
       sunrise: 1578384285,
       sunset: 1578413272,
+      population: 1578413272,
     },
   },
   setWeatherData: (weatherData) => console.warn("no theme provider"),
