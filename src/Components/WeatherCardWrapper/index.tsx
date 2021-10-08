@@ -4,23 +4,16 @@ import WeatherCard from "../WeatherCard";
 import { useWeatherData } from "../../Context";
 import { url } from "../../constant";
 import { DataInterface } from "../WeatherCard/weatherCard.interface";
-import { useStyles } from "./style";
+import { dateTimeStringToDateString, fetchData } from "../../utils";
+import useStyles from "./style";
 
 const WeatherCardWrapper: FC = () => {
   const classes = useStyles();
   const { weatherData, setWeatherData } = useWeatherData();
-  const fetchData = async () => {
-    try {
-      const data = await fetch(url).then((res) => res.json());
-      setWeatherData(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   useEffect(() => {
-    fetchData();
+    fetchData(setWeatherData, url);
     const interval = setInterval(() => {
-      fetchData();
+      fetchData(setWeatherData, url);
     }, 300000);
     return () => clearInterval(interval);
   }, []);
@@ -32,7 +25,8 @@ const WeatherCardWrapper: FC = () => {
           (listData: { dt_txt: string }, index: number) =>
             weatherData.list.findIndex(
               (obj: { dt_txt: string }) =>
-                obj.dt_txt.split(" ")[0] === listData.dt_txt.split(" ")[0]
+                dateTimeStringToDateString(obj.dt_txt) ===
+                dateTimeStringToDateString(listData.dt_txt)
             ) === index
         )
         .map((data: DataInterface, index: number) =>
