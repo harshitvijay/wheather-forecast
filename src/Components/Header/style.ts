@@ -8,6 +8,9 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
   },
+  headerText: {
+    fontSize: "8vw",
+  },
 });
 
 export default useStyles;

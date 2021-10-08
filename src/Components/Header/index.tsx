@@ -8,7 +8,7 @@ const Header: FC<{ title: string }> = ({ title }) => {
 
   return (
     <Container className={classes.headerContainer}>
-      <Typography variant="h1" component="div">
+      <Typography variant="h1" component="div" className={classes.headerText}>
         {title}
       </Typography>
     </Container>
