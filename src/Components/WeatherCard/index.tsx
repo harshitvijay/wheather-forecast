@@ -5,7 +5,11 @@ import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import { useHistory } from "react-router-dom";
 import { CityInterface, DataInterface } from "./weatherCard.interface";
-import { dateToLocalDay } from "../../utils";
+import {
+  dateToLocalDay,
+  tempKelvinToCelcius,
+  dateTimeStringToDateString,
+} from "../../utils";
 import useStyles from "./style";
 
 const WeatherCard: FC<{ data: DataInterface; city: CityInterface }> = ({
@@ -19,7 +23,9 @@ const WeatherCard: FC<{ data: DataInterface; city: CityInterface }> = ({
     <Card
       className={classes.weatherCard}
       onClick={() =>
-        history.push(`/${city.name}?date=${data.dt_txt.split(" ")[0]}`)
+        history.push(
+          `/${city.name}?date=${dateTimeStringToDateString(data.dt_txt)}`
+        )
       }
     >
       <CardContent>
@@ -36,7 +42,7 @@ const WeatherCard: FC<{ data: DataInterface; city: CityInterface }> = ({
           className={classes.avatarStyles}
         />
         <Typography variant="h4" className={classes.temperatureStyles}>
-          {Math.floor(data.main.temp - 273.15)} &#8451;
+          {tempKelvinToCelcius(data.main.temp)} &#8451;
         </Typography>
         <Typography variant="body1" className={classes.captionStyles}>
           {data.weather[0].description}
