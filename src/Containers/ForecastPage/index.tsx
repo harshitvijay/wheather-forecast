@@ -8,14 +8,13 @@ import HourlyWeatherCardWrapper from "../../Components/HourlyWeatherCardWrapper"
 const ForecastPage: FC = () => {
   return window.location.href === "http://localhost:3000/" ? (
     <Container>
-      <Header title="5-Day ForeCast." />
+      <Header title="5-Day Forecast." />
       <Location />
-
       <WeatherCardWrapper />
     </Container>
   ) : (
     <Container>
-      <Header title="Hourly ForeCast." />
+      <Header title="Hourly Forecast." />
       <HourlyWeatherCardWrapper />
     </Container>
   );
