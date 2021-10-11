@@ -5,7 +5,7 @@ const useStyles = makeStyles({
     margin: "1rem 1rem 2rem 1rem !important",
     color: "rgb(80, 80, 80, 0.5) !important",
     textAlign: "center",
-    fontSize: "2vw !important",
+    fontSize: "2rem !important",
   },
 });
 
