@@ -5,7 +5,8 @@ const useStyles = makeStyles({
     display: "flex !important",
     flexWrap: "wrap",
     justifyContent: "space-between",
-    margin: "5%",
+    margin: "5% auto",
+    padding: 0,
   },
   table: {
     minWidth: 500,
