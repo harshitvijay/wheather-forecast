@@ -1,7 +1,7 @@
 import { FC } from "react";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
-import { CityInterface, DataInterface } from "./hourlyWeatherCard.interface";
+import { CityInterface, DataInterface } from "../../common.interface";
 import {
   dateTimeStringToTimeString,
   tempKelvinToCelcius,
