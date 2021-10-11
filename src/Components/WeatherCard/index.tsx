@@ -1,14 +1,15 @@
 import { FC } from "react";
+import { useHistory } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
-import { useHistory } from "react-router-dom";
-import { CityInterface, DataInterface } from "./weatherCard.interface";
+import { CityInterface, DataInterface } from "../../common.interface";
 import {
   dateToLocalDay,
   tempKelvinToCelcius,
-  dateTimeStringToDateString,
+  imageSrcGenerator,
+  urlGenerator,
 } from "../../utils";
 import useStyles from "./style";
 
@@ -22,11 +23,7 @@ const WeatherCard: FC<{ data: DataInterface; city: CityInterface }> = ({
   return (
     <Card
       className={classes.weatherCard}
-      onClick={() =>
-        history.push(
-          `/${city.name}?date=${dateTimeStringToDateString(data.dt_txt)}`
-        )
-      }
+      onClick={() => history.push(urlGenerator(city.name, data.dt_txt))}
     >
       <CardContent>
         <Typography variant="h4" className={classes.dayStyles}>
@@ -34,11 +31,7 @@ const WeatherCard: FC<{ data: DataInterface; city: CityInterface }> = ({
         </Typography>
         <Typography className={classes.dateStyles}>{data.dt_txt}</Typography>
         <Avatar
-          src={
-            "https://openweathermap.org/img/wn/" +
-            data.weather[0].icon +
-            "@4x.png"
-          }
+          src={imageSrcGenerator(data.weather[0].icon)}
           className={classes.avatarStyles}
         />
         <Typography variant="h4" className={classes.temperatureStyles}>
