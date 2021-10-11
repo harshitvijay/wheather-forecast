@@ -61,6 +61,6 @@ export const WeatherStateData = createContext<ContextInterface>({
       population: 1578413272,
     },
   },
-  setWeatherData: (weatherData) => console.warn("no theme provider"),
+  setWeatherData: () => console.warn("no theme provider"),
 });
 export const useWeatherData = () => useContext(WeatherStateData);
