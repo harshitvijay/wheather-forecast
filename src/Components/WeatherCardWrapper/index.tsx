@@ -3,8 +3,9 @@ import Box from "@mui/system/Box";
 import WeatherCard from "../WeatherCard";
 import { useWeatherData } from "../../Context";
 import { url } from "../../constant";
-import { DataInterface } from "../WeatherCard/weatherCard.interface";
-import { dateTimeStringToDateString, fetchData } from "../../utils";
+import { DataInterface } from "../../common.interface";
+import { dateTimeStringToDateString } from "../../utils";
+import { fetchData } from "../../services";
 import useStyles from "./style";
 
 const WeatherCardWrapper: FC = () => {
@@ -29,10 +30,11 @@ const WeatherCardWrapper: FC = () => {
                 dateTimeStringToDateString(listData.dt_txt)
             ) === index
         )
-        .map((data: DataInterface, index: number) =>
-          index < 5 ? (
-            <WeatherCard key={index} data={data} city={weatherData.city} />
-          ) : null
+        .map(
+          (data: DataInterface, index: number) =>
+            index < 5 && (
+              <WeatherCard key={index} data={data} city={weatherData.city} />
+            )
         )}
     </Box>
   );
