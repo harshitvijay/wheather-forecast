@@ -18,21 +18,9 @@ export const dateTimeStringToTimeString = (dateTime: string): string => {
 export const dateTimeStringToDateString = (dateTime: string): string => {
   return dateTime.split(" ")[0];
 };
-
-export const fetchData = async (setWeatherData: Function, url: string) => {
-  try {
-    const data = await fetch(url).then((res) => res.json());
-    setWeatherData(data);
-  } catch (error) {
-    console.log(error);
-  }
+export const imageSrcGenerator = (icon: string): string => {
+  return "https://openweathermap.org/img/wn/" + icon + "@4x.png";
 };
-
-export const fetchCities = async (url: string) => {
-  try {
-    const cities = await fetch(url).then((res) => res.json());
-    return cities.data;
-  } catch (error) {
-    console.log(error);
-  }
+export const urlGenerator = (name: string, date: string) => {
+  return `/${name}?date=${dateTimeStringToDateString(date)}`;
 };
