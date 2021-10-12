@@ -1,5 +1,4 @@
 import { FC, useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ForecastPage from "./Containers/ForecastPage";
 import { WeatherStateData, useWeatherData } from "./Context";
 import "./App.css";
@@ -10,17 +9,7 @@ const App: FC = () => {
 
   return (
     <WeatherStateData.Provider value={{ weatherData, setWeatherData }}>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <ForecastPage />
-          </Route>
-          <Route
-            path={`/${weatherData.city.name}`}
-            component={ForecastPage}
-          ></Route>
-        </Switch>
-      </Router>
+      <ForecastPage />
     </WeatherStateData.Provider>
   );
 };
