@@ -30,14 +30,3 @@ const ForecastPage: FC = () => {
 };
 
 export default ForecastPage;
-
-//  <Container>
-//       <Header title="5-Day Forecast." />
-//       <Location />
-//       <WeatherCardWrapper />
-//     </Container>
-//   ) : (
-//     <Container>
-//       <Header title="Hourly Forecast." />
-//       <HourlyWeatherCardWrapper />
-//     </Container>
