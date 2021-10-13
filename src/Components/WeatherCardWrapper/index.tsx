@@ -1,24 +1,18 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import Box from "@mui/system/Box";
 import WeatherCard from "../WeatherCard";
 import { useWeatherData } from "../../Context";
-import { url } from "../../constant";
+import { url, citiesUrl } from "../../constant";
 import { DataInterface } from "../../common.interface";
 import { dateTimeStringToDateString } from "../../utils";
-import { fetchData } from "../../services";
+import { fetchCities, fetchData } from "../../services";
 import useStyles from "./style";
 
 const WeatherCardWrapper: FC = () => {
   const classes = useStyles();
   const { weatherData, setWeatherData } = useWeatherData();
-  useEffect(() => {
-    fetchData(setWeatherData, url);
-    const interval = setInterval(() => {
-      fetchData(setWeatherData, url);
-    }, 300000);
-    return () => clearInterval(interval);
-  }, []);
-
+  fetchData(setWeatherData, url);
+  fetchCities(citiesUrl);
   return (
     <Box className={classes.weather}>
       {weatherData.list
