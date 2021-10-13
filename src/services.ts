@@ -2,6 +2,8 @@ export const fetchData = async (setWeatherData: Function, url: string) => {
   try {
     const data = await fetch(url).then((res) => res.json());
     setWeatherData(data);
+    const interval = setInterval(() => fetchData(setWeatherData, url), 3600000);
+    clearInterval(interval);
   } catch (error) {
     console.log(error);
   }
